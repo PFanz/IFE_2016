@@ -59,6 +59,11 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+.wrap:nth-child(5) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 div[class^=circle] {
     position: absolute;
     width: 100px;
