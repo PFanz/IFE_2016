@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 04</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            height: 100%;
+            width: 100%;
+            display: table;
+        }
+        #wrap {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .block {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: #ccc;
+            overflow: hidden;
+        }
+        div[class^=circle] {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #fc0;
+            border-radius: 50%;
+        }
+        .circle-top {
+            top: -50px;
+            left: -50px;
+        }
+        .circle-bottom {
+            bottom: -50px;
+            right: -50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="block">
+
+            <div class="circle-top"></div>
+            <div class="circle-bottom"></div>
+
+        </div>
+    </div>
+
+</body>
+</html>
