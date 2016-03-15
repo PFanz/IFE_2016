@@ -423,16 +423,21 @@ th {
   padding: 0;
 }
 
+$main-color : #91D4DA;
+$font-color : #666;
+$font-color-shallow : #999;
+$background : #F5F5F5;
+$line-color : #EAEAEA;
+
 body {
   font-family: Helvetica Neue, Helvetica, Nimbus Sans L, Arial, Liberation Sans, PingFang SC, Hiragino Sans GB, Source Han Sans CN, Source Han Sans SC, Microsoft YaHei, Wenquanyi Micro Hei, WenQuanYi Zen Hei, ST Heiti, SimHei, WenQuanYi Zen Hei Sharp, sans-serif;
+  color: $font-color;
 }
 
 #wrap {
   width: 100%;
   font-size: 1rem;
 }
-
-$main-color : #91D4DA;
 
 header {
 
@@ -494,4 +499,81 @@ header {
 .header-img {
   width: 100%;
   height: auto;
+}
+
+.block {
+  padding: 0 1rem;
+  background: #fff;
+  margin-bottom: 1rem;
+}
+
+#contents {
+  background: $background;
+}
+.top {
+  ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      text-align: center;
+      width: 25%;
+
+      &.active {
+        border-bottom: 3px solid $main-color;
+      }
+      &:active {
+        background: #eee;
+      }
+    }
+  }
+
+  .tags {
+    padding: 1rem 0;
+    border-bottom: 2px solid $line-color;
+    li {
+      width: 20%;
+
+      img {
+        width: 12vw;
+        height: auto;
+        margin-bottom: .7rem;
+      }
+
+      span {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  .cols {
+    padding: 1.2rem 0;
+    li {
+      width: 33.33333%;
+      border-right: 2px solid $line-color;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+    h3 {
+      margin: 0;
+      margin-bottom: .5rem;
+      font-weight: 600;
+    }
+    h4 {
+      margin: 0;
+      color: $font-color-shallow;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    img {
+      width: 20vw;
+      height: auto;
+      margin-bottom: .7rem;
+    }
+  }
 }
