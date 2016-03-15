@@ -67,9 +67,22 @@ body {
 .img-list li {
     border: 1px solid gray;
     padding: 1em;
-    width: auto;
+    width: 25%;
     margin-bottom: 2em;
 }
+
+.img-list li p {
+    text-align:center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.img-list li img {
+    margin-top: 1em;
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 
 /* post end */
