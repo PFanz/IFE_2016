@@ -145,7 +145,7 @@
                 </ul>
                 <div class="entry">
                     <p>下面是一个表格，给表格加了一个 border="1" 好让你看出是一个表格</p>
-                    <table border="1">
+                    <table>
                         <thead>
                             <tr>
                                 <th>表头</th>
@@ -181,8 +181,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>总计</td>
-                                <td colspan="2">1000</td>
+                                <td class="bold">总计</td>
+                                <td class="bold" colspan="2">1000</td>
                             </tr>
                         </thead>
                     </table>
@@ -236,9 +236,9 @@
                     <input type="checkbox" id="chkArt" name="chkFav" value="art">
                     <label for="chkArt">艺术</label>
                 </p>
-                <p>
+                <p class=" top-parent">
                     <label class="aside-left">个人描述:</label>
-                    <textarea>这里是一个多行输入框，输入您的个人描述</textarea>
+                    <textarea rows="4">这里是一个多行输入框，输入您的个人描述</textarea>
                 </p>
                 <input type="submit" value="确认提交">
             </form>
