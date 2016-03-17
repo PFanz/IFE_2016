@@ -76,6 +76,12 @@ body {
     justify-content: center;
 }
 
+.wrap:nth-child(6) .block {
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 100px);
+}
+
 div[class^=circle] {
     position: absolute;
     width: 100px;
