@@ -8,8 +8,9 @@ html {
 }
 body {
     height: 100%;
-    width: 100%;
-    display: table;
+    display: block;
+    padding: 20px;
+    border: 1px solid #eee;
 }
 .wrap {
     padding: 20px;
@@ -55,7 +56,12 @@ body {
     margin-left: 220px;
     margin-right: 140px;
     padding: 20px;
-    
+    overflow: hidden;
+    min-width: 100px;
+}
+
+.desc_panel p {
+    float: left;
 }
 
 .member_panel {
@@ -76,3 +82,8 @@ body {
 }
 
 
+@media screen and (max-width: 600px) {
+    .desc_panel {
+        margin: 0px;
+    }
+}
