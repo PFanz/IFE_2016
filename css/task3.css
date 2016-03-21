@@ -1,0 +1,46 @@
+body {
+	padding: 20px;
+}
+
+.containt {
+	height: 600px;
+	background: #999;
+	overflow: hidden;
+}
+
+.team {
+	float: left;
+	width: 160px;
+	margin: 20px;
+	padding: 20px;
+	background: white;
+}
+
+.logo {
+	float: left;
+	overflow: hidden;
+}
+
+.logo img{
+	width: 80px;
+	height: 80px;
+	background: #999;
+}
+
+.introduce {
+	/*display: none;*/
+	height: 400px;
+	margin-top: 20px;
+	margin-left: 240px;
+	margin-right: 160px;
+	background: white;
+}
+
+.members {
+	float: right;
+	width: 80px;
+	margin: 20px;
+	padding: 20px;
+	background: white;
+	overflow: hidden;
+}
