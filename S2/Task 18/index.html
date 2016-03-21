@@ -28,6 +28,7 @@
             text-align: center;
             background: #0067a3;
             color: #ffffff;
+            cursor: pointer;
         }
     </style>
 
@@ -92,13 +93,29 @@
             })
         }
 
+        /*var li = queueList.getElementsByTagName('li');
+        var i  = 0;
+        for(; i < li.length; i++) {
+            li[i].addEventListener('click', function(i) {
+                console.log(this.innerText);
+            })
+        }*/
+        queueList.addEventListener('click', function(e) {
+            var event = window.event || e;
+            var li    = event.target;
+            var index = parseInt(li.getAttribute('index'));
+
+            queue.splice(index, 1);
+            li.outerHTML = '';
+        })
+
         //刷新队列
         function flushQueue(elem, queue) {
 
             var i    = 0;
             var html = '';
             for(; i < queue.length; i++) {
-                html += '<li>' + queue[i] + '</li>';
+                html += '<li data-index="' + i + '">' + queue[i] + '</li>';
             }
 
             elem.innerHTML = html;
