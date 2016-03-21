@@ -32,12 +32,12 @@ ul.nav {
 }
 
 .nav li a:link{
-	text-decoration: none;
+	/*text-decoration: none;*/
 	color: white;
 }
 
 .nav li a:visited{
-	text-decoration: none;
+	/*text-decoration: none;*/
 	color: #aca7ab;
 }
 
@@ -47,7 +47,7 @@ ul.nav {
 }
 
 .nav li a:active{
-	text-decoration: none;
+	/*text-decoration: none;*/
 	color: #ff7200;
 }
 
@@ -144,6 +144,7 @@ dl span {
 	border-radius: 10px;
 	background: #3355d0;
 	color: white;
+	cursor: pointer;
 }
 
 footer {
