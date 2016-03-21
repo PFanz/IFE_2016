@@ -1,0 +1,155 @@
+body {
+	font-family: "黑体","微软雅黑";
+	line-height: 25px;
+	background: #dedede;
+}
+
+header {
+	height: 60px;
+	background: #333;
+}
+
+header img {
+	height: 60px;
+}
+
+ul.nav {
+	list-style: disc;
+	display: block;
+	float:right;
+	line-height: 60px;
+	font-size: 16px;
+} 
+.nav li{
+	margin: 0 10px;
+	float:left;
+	color:black;
+}
+
+.nav li a {
+	color: white;
+	font-size: 14px;
+}
+
+.nav li a:link{
+	text-decoration: none;
+	color: white;
+}
+
+.nav li a:visited{
+	text-decoration: none;
+	color: #aca7ab;
+}
+
+.nav li a:hover{
+	text-decoration: none;
+	color: #ff7200;
+}
+
+.nav li a:active{
+	text-decoration: none;
+	color: #ff7200;
+}
+
+h2 {
+	margin: 10px 0;
+	font-size: 25px;
+}
+
+h3 {
+	margin: 10px 0;
+	color: #aca7ab;
+}
+
+div.part {
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #aca7ab;
+	background: white;
+}
+
+.author {
+	margin: 10px 0;
+}
+
+.author span {
+	font-size: 10px;
+	color: #aca7ab;
+}
+
+div+p {
+	text-indent: 2em;
+}
+
+ol.rank {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+
+.img-box {
+	width: 121px;
+	height: 121px;
+	border: 1px solid #ACA7AB;
+	padding:10px;
+	margin: 20px;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}
+
+table thead{
+	color: white;
+	background: #333;
+}
+
+tbody tr:last-child {
+	font-weight: bolder;
+	background: #ccc;
+}
+
+tbody tr:last-child td {
+	border: 0;
+}
+
+.sidebar h2:before {
+	position: absolute;
+	width: 2px;
+	height: 25px;
+	background: #ccc;
+	content: '';
+}
+
+dt.form-label {
+	position: absolute;
+	left: 25%;
+	width: 200px;
+	text-align: right;
+}
+
+dl {
+	position: relative;
+	padding-left: 500px;
+}
+
+dl span {
+	color: #ACA7AB;
+	font-size: 8px;
+}
+
+.submit {
+	width: 100%;
+	height: 35px;
+	border-radius: 10px;
+	background: #3355d0;
+	color: white;
+}
+
+footer {
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: black;
+	color: white;
+}
