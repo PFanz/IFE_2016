@@ -3,6 +3,8 @@
  */
 (function(w,d) {
 
+    'use strict'
+
     var $ = function(id) {
         return d.getElementById(id);
     }
@@ -110,6 +112,7 @@
             _sort(left, i - 1);
             _sort(i + 1, right);
         }
+
         //元素交换
         function _arrSwap(arr, index1, index2) {
             var tmp = arr[index1];
@@ -118,6 +121,7 @@
 
             queueStatus.push(arr.slice(0));
         }
+
         //刷新队列
         function _flushQueue(elem, queueStatus) {
             var i = 0;
@@ -125,7 +129,6 @@
             var process = setInterval(run, 200);
 
             function run() {
-                // alert("aa")
 
                 if(i === queueStatus.length) {
                     clearInterval(process);
@@ -135,12 +138,12 @@
                 var html = '',
                     j    = 0,
                     q = queueStatus[i++];
+
                 for(; j < q.length; j++) {
                     html += '<li style="height:' + q[j] * 5 + 'px">' + '</li>';
                 }
                 elem.innerHTML = html;
-
-            };
+            }
         }
 
         _sort(0, queue.length - 1);
@@ -149,6 +152,7 @@
 
     //随机生成队列
     function randomQueue() {
+        queue = [];
         for(var i = 0; i < 50; i++) {
             queue.push(parseInt(Math.random() * 100));
         }
