@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">    <!-- 强制双核浏览器使用webkit内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度手机版转码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+        #queue {
+            padding: 0;
+            margin: 10px 0;
+        }
+        #queue li {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            line-height: 50px;
+            font-size: 18px;
+            text-align: center;
+            background: #0067a3;
+            color: #ffffff;
+        }
+    </style>
+
+</head>
+<body>
+
+<input type="text" id="num">
+<input type="button" id="left-in" value="左侧进">
+<input type="button" id="right-in" value="右侧进">
+
+<input type="button" id="left-out" value="左侧出">
+<input type="button" id="right-out" value="右侧出">
+
+<ul id="queue"></ul>
+
+
+<script>
+
+    (function(w,d) {
+
+        var $ = function(id) {
+            return d.getElementById(id);
+        }
+
+        var num       = $('num');
+        var queue     = [];
+        var queueList = $('queue');
+        var input     = d.getElementsByTagName('input');
+        var i         = 0;
+
+        for(;i < input.length; i++) {
+            input[i].addEventListener('click', function() {
+
+                //判断是否为按钮
+                if(this.type !== 'button') return;
+
+                var val = num.value;
+
+                //判断是否为纯数字
+                if(!/^\d+$/.test(val)) {
+                    alert('输入的数字格式不正确');
+                    return;
+                }
+
+                //通过判断元素ID名执行不同的操作
+                switch (this.id) {
+                    case 'left-in' :
+                        queue.unshift(val);
+                        break;
+                    case 'right-in' :
+                        queue.push(val);
+                        break;
+                    case 'left-out' :
+                        alert(queue.shift());
+                        break;
+                    case 'right-out' :
+                        alert(queue.pop());
+                        break;
+                }
+
+                flushQueue(queueList, queue);
+            })
+        }
+
+        //刷新队列
+        function flushQueue(elem, queue) {
+
+            var i    = 0;
+            var html = '';
+            for(; i < queue.length; i++) {
+                html += '<li>' + queue[i] + '</li>';
+            }
+
+            elem.innerHTML = html;
+        }
+
+    })(window,document);
+</script>
+
+</body>
+</html>
