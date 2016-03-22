@@ -18,5 +18,5 @@ IFETask
 
 
 #### Stage 2
-[Task 18](http://geeku.work/ife/S2/Task%2018/)
-[Task 19](http://lafairy.work/task/s1/task19/)
+[Task 18](http://geeku.work/ife/S2/Task%2018/) 
+[Task 19](http://geeku.work/ife/S2/Task%2019/)
