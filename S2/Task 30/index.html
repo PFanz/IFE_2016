@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 29</title>
+
+    <style>
+
+        #wrap {
+            width: 380px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10% 0;
+            font-size: 18px;
+            font-family: 'Microsoft YaHei';
+            color: #333;
+            text-align: right;
+        }
+        input {
+            font-family: 'Microsoft YaHei';
+        }
+        section {
+            margin-bottom: 10px;
+        }
+        section > span,
+        #check {
+            vertical-align: top;
+        }
+        .input-area {
+            margin: 0 0 0 10px;
+            display: inline-block;
+        }
+        .input-area p {
+            font-size: 14px;
+            margin: 5px;
+            text-align: left;
+            color: #ccc;
+            visibility: hidden;
+        }
+        .input-area input {
+            width: 260px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 1px 1px 3px #eee inset;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .input-area input:focus ~ p {
+            visibility: visible;
+        }
+
+        .input-area.error input {
+            border-color: #FF383C;
+            box-shadow: 1px 1px 3px #eee inset, 0 0 5px #FF383C;
+        }
+        .input-area.successful p {
+            color: #1D9027;
+        }
+        .input-area.successful input {
+            border-color: #1CB92A;
+            box-shadow: 1px 1px 3px #eee inset, 0 0 5px #1CB92A;
+        }
+        .input-area.error p {
+            color: #FF383C;
+        }
+        #check {
+            min-width: 80px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            background: #0067a3;
+            color: #fff;
+            border: none;
+            outline: none;
+            line-height: 1.6;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #check:hover {
+            background: #0096e1;
+        }
+        #check:active {
+            box-shadow: 1px 1px 3px rgba(0,0,0,.2) inset;
+        }
+
+    </style>
+</head>
+<body>
+
+<form id="wrap">
+
+    <section id="input-area-name">
+        <span>名称</span>
+        <div class="input-area">
+            <input type="text">
+            <p class="info">必填，长度为4~6个字符</p>
+        </div>
+    </section>
+
+    <section id="input-area-passwd">
+        <span>密码</span>
+        <div class="input-area">
+            <input type="text">
+            <p class="info">请输入密码</p>
+        </div>
+    </section>
+
+    <section id="input-area-passwd-check">
+        <span>密码确认</span>
+        <div class="input-area">
+            <input type="text">
+            <p class="info">请再次输入密码</p>
+        </div>
+    </section>
+
+    <section id="input-area-email">
+        <span>邮箱</span>
+        <div class="input-area">
+            <input type="text">
+            <p class="info">请输入你的邮箱</p>
+        </div>
+    </section>
+
+    <section id="input-area-cellphone">
+        <span>手机</span>
+        <div class="input-area">
+            <input type="text">
+            <p class="info">请输入你的手机号</p>
+        </div>
+    </section>
+
+    <input type="submit" id="check" value="验证">
+</form>
+
+<script src="main.js"></script>
+
+</body>
+</html>
