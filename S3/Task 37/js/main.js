@@ -166,6 +166,12 @@
             } else {
                 this.show();
             }
+        },
+
+        edit: function(conf) {
+
+            conf.title ? this.header.querySelector('h3').innerText = conf.title : null;
+            conf.content ? this.wrap.querySelector('.pop-content').innerHTML = conf.content : null;
         }
     };
 
