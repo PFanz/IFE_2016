@@ -22,6 +22,7 @@
 
 <input type="button" value="点击弹出" id="btn">
 <input type="button" value="点击弹出" id="btn2">
+<input type="button" value="点击弹出" id="btn3">
 
 <div class="popuper">
     <div class="pop-wrap">
@@ -53,12 +54,30 @@
     </div>
 </div>
 
+<div class="popuper p3">
+    <div class="pop-wrap">
+        <header class="pop-header">
+            <h3>这是一个弹出层</h3>
+        </header>
+        <section class="pop-content">
+            这是一个弹出层
+        </section>
+        <section class="pop-control">
+            <input type="button" class="confirm" value="确定">
+            <input type="button" class="cancel" value="取消">
+        </section>
+    </div>
+</div>
+
 <script src="js/main.js"></script>
 <script>
     var cover = document.querySelector('.popuper');
     var btn = document.getElementById('btn');
     var btn2 = document.querySelector('#btn2');
     var pop2 = document.querySelector('.p2');
+
+    var btn3 = document.querySelector('#btn3');
+    var pop3 = document.querySelector('.p3');
 
     var pop = Popuper({
         wrap: cover,
@@ -82,11 +101,25 @@
         }
     });
 
+    var p3 = Popuper({
+        wrap: pop3,
+        type: 'warning',
+        confirm: function() {
+            alert('success');
+        },
+        cancel: function() {
+            alert('cancel');
+        }
+    });
+
     btn.addEventListener('click', function() {
         pop.toggle();
     });
     btn2.addEventListener('click', function() {
         p2.toggle();
+    });
+    btn3.addEventListener('click', function() {
+        p3.toggle();
     });
 </script>
 </body>
