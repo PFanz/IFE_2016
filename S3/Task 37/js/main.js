@@ -18,10 +18,10 @@
         header: null,
         status: false,
         isDown: false,
+        width: 0,
+        height: 0,
 
         init: function(param) {
-
-            this.width = param.width || null;
 
             this.container = param.wrap || null;
             this.wrap = this.container.querySelector('.pop-wrap') || null;
@@ -56,50 +56,72 @@
                 }, false);
             }
 
-            //设置宽度
-            this.width ? this.wrap.style.width = this.width : null;
-
-
             //提示框拖动
             var offsetX = 0,
                 offsetY = 0,
                 mL = 0,
-                mT = 0;
-            this.header.addEventListener('mousedown', _down, false);
-            this.wrap.addEventListener('mouseup', _up, false);
+                mT = 0,
+                windowHeight = document.documentElement.clientHeight,
+                windowWidth  = document.documentElement.clientWidth;
+
+            document.addEventListener('mousedown', _down, false);
+            document.addEventListener('mouseup', _up, false);
             function _down (event) {
 
                 event = event || window.event;
 
-                self.isDown = true;
+                if(
+                    event.target.className === self.header.className ||
+                    event.target.parentNode.className === self.header.className
+                ) {
+                    self.isDown = true;
 
-                //获取当前的margin值
-                mL = parseInt(self.wrap.style.marginLeft || 0, 10);
-                mT = parseInt(self.wrap.style.marginTop || 0, 10);
+                    //获取当前的transform值
+                    var transform = /translate3d\((.*)px,.?(.*)px.?.*px\)/.exec(self.wrap.style.transform);
 
-                offsetX = event.clientX - mL;
-                offsetY = event.clientY - mT;
+                    if(transform) {
+                        mL = transform[1] || 0;
+                        mT = transform[2] || 0;
+                    } else {
+                        mL = mT = 0;
+                    }
 
-                self.header.addEventListener('mousemove', _move, false);
+                    offsetX = event.clientX - mL;
+                    offsetY = event.clientY - mT;
+
+                    document.addEventListener('mousemove', _move, false);
+                }
             }
             function _move(event) {
 
                 event = event || window.event;
+                event.preventDefault();
 
-                var positionX = event.clientX - offsetX,
-                    positionY = event.clientY - offsetY;
+                if(self.isDown) {
+                    var positionX = event.clientX - offsetX,
+                        positionY = event.clientY - offsetY,
+                        elemLeft  = (windowWidth - self.width) / 2,
+                        elemTop    = (windowHeight - self.height) / 2;
 
-                //if(!())
+                    if(!(
+                            - positionX >= elemLeft ||
+                            positionX >= elemLeft ||
+                            - positionY >=  elemTop ||
+                            positionY >= elemTop
+                        ))
+                    {
+                        self.wrap.style.transform = 'translate3d(' + positionX + 'px,' + positionY + 'px,0)';
 
-                self.wrap.style.marginLeft = positionX + 'px';
-                self.wrap.style.marginTop = positionY + 'px';
-
-                console.log('marginLeft:' + self.wrap.style.marginLeft + ';marginTop:' + self.wrap.style.marginTop);
+                        //console.log('marginLeft:' + self.wrap.style.marginLeft + ';marginTop:' + self.wrap.style.marginTop);
+                    }
+                }
             }
             function _up(event) {
 
-                self.isDown = false;
-                self.header.removeEventListener('mousemove', _move);
+                if(self.isDown) {
+                    self.isDown = false;
+                    document.removeEventListener('mousemove', _move);
+                }
             }
 
             this.container.addEventListener('click', function(event) {
@@ -107,7 +129,6 @@
                 event = event || window.event;
                 if(event.target.className === self.container.className && !self.isDown) {
                     self.hide();
-                    self.header.removeEventListener('mousemove', _move);
                 }
 
             }, true);
@@ -120,6 +141,10 @@
 
             this.container.className += ' show';
             this.status = true;
+            this.width = this.wrap.clientWidth;
+            this.height = this.wrap.clientHeight;
+            this.wrap.style.marginLeft = - (this.width / 2) + 'px';
+            this.wrap.style.marginTop = - (this.height / 2) + 'px';
 
             //禁止页面滚动，不支持火狐
             window.addEventListener('mousewheel', _stopScroll, false);
