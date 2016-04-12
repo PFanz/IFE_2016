@@ -23,12 +23,14 @@
             this.container = param.wrap;
             this.width = param.width || null;
             this.wrap = this.container.querySelector('.pop-wrap');
-            this.header = this.container.querySelector('.pop-header');
+            this.header = this.container.querySelector('.pop-header') || null;
+            this.type = param.type;
 
             //this.height = param.height || 300;
 
-            var cssText = '',
-                self = this,
+            this.container.className += ' ' + this.type;
+
+            var self = this,
                 confirm = this.container.querySelector('.confirm'),
                 cancel  = this.container.querySelector('.cancel');
 
@@ -37,21 +39,21 @@
                 confirm.addEventListener('click', function() {
                     param.confirm();
                     self.hide();
-                })
+                }, false);
             }
 
             if(!!cancel) {
                 cancel.addEventListener('click', function() {
                     param.cancel();
                     self.hide();
-                })
+                }, false);
             }
 
             this.width ? this.wrap.style.width = this.width : null;
 
             this.container.addEventListener('click', function(event) {
                 event = window.event || event;
-                if(event.target.className === self.wrap.className) {
+                if(event.target.className === self.container.className) {
                     self.hide();
                 }
             }, true);
@@ -62,7 +64,6 @@
         show : function() {
 
             this.container.className += ' show';
-
             this.status = true;
         },
 

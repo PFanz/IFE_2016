@@ -23,16 +23,29 @@
         transform: translateX(-50%) translateY(-50%);
         width: 90%;
         max-width: 500px;
+        overflow: hidden;
+    }
+
+    &.info .pop-header {
+        background-color: #fff;
+        color: #333;
+    }
+    &.error .pop-header {
+        background-color: #e74c3c;
+        color: #fff;
+    }
+    &.success .pop-header {
+        background-color: #2ecc71;
+        color: #fff;
     }
 
     .pop-header {
         padding: 1rem;
-        border-bottom: 1px solid #eee;
         cursor: move;
     }
     h3 {
         margin: 0;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 500;
     }
 
