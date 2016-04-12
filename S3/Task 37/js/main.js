@@ -148,6 +148,8 @@
 
             //禁止页面滚动，不支持火狐
             window.addEventListener('mousewheel', _stopScroll, false);
+
+            return this;
         },
 
         hide: function() {
@@ -157,6 +159,8 @@
             this.status = false;
 
             window.removeEventListener('mousewheel', _stopScroll, false);
+
+            return this;
         },
 
         toggle: function() {
@@ -166,12 +170,16 @@
             } else {
                 this.show();
             }
+
+            return this;
         },
 
         edit: function(conf) {
 
             conf.title ? this.header.querySelector('h3').innerText = conf.title : null;
             conf.content ? this.wrap.querySelector('.pop-content').innerHTML = conf.content : null;
+
+            return this;
         }
     };
 
