@@ -154,14 +154,21 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, amet asperior
     });
 
     var p2 = Popuper({
+
         wrap: pop2,
         type: 'success',
         confirm: function() {
-            alert('success');
+            alert('confirm callback');
         },
         cancel: function() {
-            alert('cancel');
+            alert('cancel callback');
         }
+
+    }).edit({
+
+        title: 'custom title',
+        content: 'cutom content<h1>3243</h1>'
+
     });
 
     var p3 = Popuper({
@@ -185,10 +192,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, amet asperior
         p3.toggle();
     });
 
-    p2.edit({
-        title: 'custom title',
-        content: 'cutom content<h1>3243</h1>'
-    });
 </script>
 </body>
 </html>
