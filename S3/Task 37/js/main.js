@@ -150,6 +150,7 @@
             this.height = this.wrap.clientHeight;
             this.wrap.style.marginLeft = -(this.width / 2) + 'px';
             this.wrap.style.marginTop = -(this.height / 2) + 'px';
+            this.wrap.style.transform = 'translate3d(0,0,0)';
 
             //禁止页面滚动，不支持火狐
             window.addEventListener('mousewheel', _stopScroll, false);
