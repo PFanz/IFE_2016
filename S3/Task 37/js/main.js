@@ -107,17 +107,20 @@
                         elemTop = (windowHeight - self.height) / 2;
 
                     //限定拖动范围
-                    if (!(
-                            -positionX >= elemLeft ||
-                            positionX >= elemLeft ||
-                            -positionY >= elemTop ||
-                            positionY >= elemTop
-                        )) {
-
-                        self.wrap.style.transform = 'translate3d(' + positionX + 'px,' + positionY + 'px,0)';
-
-                        //console.log('marginLeft:' + self.wrap.style.marginLeft + ';marginTop:' + self.wrap.style.marginTop);
+                    if(-positionX >= elemLeft) {
+                        positionX = -elemLeft;
                     }
+                    if(positionX >= elemLeft) {
+                        positionX = elemLeft;
+                    }
+                    if(-positionY >= elemTop) {
+                        positionY = -elemTop;
+                    }
+                    if(positionY >= elemTop) {
+                        positionY = elemTop;
+                    }
+
+                    self.wrap.style.transform = 'translate3d(' + positionX + 'px,' + positionY + 'px,0)';
                 }
             }
 

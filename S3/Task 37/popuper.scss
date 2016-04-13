@@ -46,6 +46,10 @@
     .pop-header {
         padding: 1rem;
         cursor: move;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     h3 {
         margin: 0;
@@ -76,7 +80,7 @@
         color: #fff;
         cursor: pointer;
         font-family: 'Open Sans', Helvetica, Tahoma, Arial, STXihei, "Microsoft YaHei", SimSun, Heiti, sans-serif;
-
+        -webkit-appearance: none;
 
         &:hover {
             background-color: #58d68d;

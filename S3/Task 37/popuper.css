@@ -33,7 +33,11 @@
     color: #fff; }
   .popuper .pop-header {
     padding: 1rem;
-    cursor: move; }
+    cursor: move;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
   .popuper h3 {
     margin: 0;
     font-size: 1.2rem;
@@ -57,7 +61,8 @@
     font-weight: 500;
     color: #fff;
     cursor: pointer;
-    font-family: 'Open Sans', Helvetica, Tahoma, Arial, STXihei, "Microsoft YaHei", SimSun, Heiti, sans-serif; }
+    font-family: 'Open Sans', Helvetica, Tahoma, Arial, STXihei, "Microsoft YaHei", SimSun, Heiti, sans-serif;
+    -webkit-appearance: none; }
     .popuper input[type=button]:hover {
       background-color: #58d68d; }
     .popuper input[type=button]:active {
