@@ -170,7 +170,9 @@
         pop.toggle();
     });
     btn2.addEventListener('click', function() {
-        p2.toggle();
+        p2.toggle().edit({
+            type: 'info'
+        });
     });
     btn3.addEventListener('click', function() {
         p3.toggle();

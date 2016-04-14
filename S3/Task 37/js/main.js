@@ -185,8 +185,10 @@
 
         edit: function (conf) {
 
+            var className = this.container.className;
             conf.title ? this.header.querySelector('h3').innerText = conf.title : null;
             conf.content ? this.wrap.querySelector('.pop-content').innerHTML = conf.content : null;
+            conf.type ? this.container.className = className.replace(/(info)|(error)|(success)|(warning)/, '').trim() + ' ' + conf.type : null;
 
             return this;
         }
