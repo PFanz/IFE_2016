@@ -72,6 +72,7 @@
 
     var data = {
         header : ['表头1','表头2','表头3','表头4','表头5'],
+        sortable : [0,1,1,0,1],
         content: [
             ['A',3,5,6,7],
             ['B',2,6,8,77],
@@ -82,11 +83,9 @@
     var et = easyTable({
         table: document.querySelector('table'),
         data: data
-    });
-
-    et.order({
-       index: 1,
-       order: 'desc'
+    }).order({
+        index: 1,
+        order: 'desc'
     });
 
     var textarea = document.getElementById('data');

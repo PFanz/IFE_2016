@@ -14,7 +14,8 @@
         dataPointer: null,
         tData: {
             header: null,
-            content: null
+            content: null,
+            sortable: null
         },
 
         init: function(param) {
@@ -30,6 +31,7 @@
             this.dataPointer = param.data;
             this.tData.header = param.data.header || null;
             this.tData.content = param.data.content || null;
+            this.tData.sortable = param.data.sortable || null;
 
             if(!this.tData.header || !this.tData.content) {
                 console.error('传入的数据格式不正确');
@@ -71,6 +73,10 @@
                 if(target.tagName.toLocaleLowerCase() === 'th') {
 
                     order.index = cellIndex = target.cellIndex;
+
+                    if(!self.tData.sortable[cellIndex]) {
+                        return;
+                    }
 
                     if(className.indexOf('asc') < 0 && className.indexOf('desc') < 0) {
 
