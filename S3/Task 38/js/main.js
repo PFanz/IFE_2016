@@ -11,6 +11,7 @@
 
         constructor: easyTable,
         table: null,
+        dataPointer: null,
         tData: {
             header: null,
             content: null
@@ -26,6 +27,7 @@
             }
 
             this.table = param.table;
+            this.dataPointer = param.data;
             this.tData.header = param.data.header || null;
             this.tData.content = param.data.content || null;
 
@@ -36,7 +38,7 @@
 
             this.create(this.tData);
 
-            property(data, 'content', {
+            property(this.dataPointer, 'content', {
                 get: function() {
                     return self.tData.content;
                 },
@@ -46,7 +48,7 @@
                 }
             });
 
-            property(data, 'header', {
+            property(this.dataPointer, 'header', {
                 get: function() {
                     return self.tData.header;
                 },
@@ -101,7 +103,7 @@
                         }
                     }
 
-                    data.content = content;
+                    self.dataPointer.content = content;
                     self.table.querySelectorAll('th')[order.index].className = order.order;
 
                 }
@@ -141,6 +143,27 @@
             //将内容添加到表内
             this.table.appendChild(thead);
             this.table.appendChild(tbody);
+        },
+
+        order: function(conf) {
+
+            var content;
+
+            content = this.tData.content;
+
+            if(conf.order == 'desc') {
+                content.sort(function(x, y) {
+                    return y[conf.index] - x[conf.index];
+                });
+            }
+            if(conf.order == 'asc') {
+                content.sort(function(x, y) {
+                    return x[conf.index] - y[conf.index];
+                });
+            }
+
+            this.dataPointer.content = content;
+            this.table.querySelectorAll('th')[conf.index].className = conf.order;
         }
     };
 
