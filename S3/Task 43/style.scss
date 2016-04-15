@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.yoPhoto {
+
+    position: relative;
+
+    img {
+        display: none;
+    }
+
+    .imgCover {
+        background-repeat: no-repeat;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        transition: all .2s ease-in-out;
+        transform: translate3d(0,0,0);
+
+        &:hover {
+            //transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
+        }
+    }
+    
+    &.layout-1 {
+        
+        .imgCover {
+            width: 100%;
+        }
+    }
+
+    &.layout-2 {
+
+        .imgCover:last-child {
+            transform: translateY(-100%);
+            -webkit-clip-path: polygon(66.66666% 0, 100% 0, 100% 100%, 33.33333% 100%);
+            clip-path: polygon(66.66666% 0, 100% 0, 100% 100%, 33.33333% 100%);
+        }
+    }
+
+    &.layout-3 {
+
+        .imgCover {
+            position: absolute;
+        }
+        .imgCover:last-child {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .imgCover:nth-child(5) {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

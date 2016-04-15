@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        body > div {
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="pic-1">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_1.jpg" alt="">
+</div>
+
+<div id="pic-2">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_1.jpg" alt="">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_2.jpg" alt="">
+</div>
+
+<div id="pic-3">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_1.jpg" alt="">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_2.jpg" alt="">
+    <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_3.jpg" alt="">
+</div>
+
+<div id="pic-4">
+
+</div>
+
+<div id="pic-5">
+
+</div>
+
+<div id="pic-6">
+
+</div>
+
+<script>
+    var p1 = yoPhoto({
+        wrap: document.getElementById('pic-1')
+    });
+    var p2 = yoPhoto({
+        wrap: document.getElementById('pic-2'),
+        height: '400px'
+    });
+
+    var p3 = yoPhoto({
+        wrap: document.getElementById('pic-3'),
+        height: '400px'
+    });
+</script>
+
+</body>
+</html>
