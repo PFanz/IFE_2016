@@ -45,7 +45,6 @@ table.et thead th {
 
 table.et thead tr>th:first-child {
     border-left: none;
-    cursor: auto;
 }
 
 table.et thead tr:first-child>th:first-child {

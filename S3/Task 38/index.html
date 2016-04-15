@@ -89,6 +89,7 @@
     });
 
     var textarea = document.getElementById('data');
+    textarea.innerText = JSON.stringify(data.content);
     textarea.addEventListener('keyup', function(e) {
 
         try {

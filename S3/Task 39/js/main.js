@@ -117,39 +117,43 @@
 
             if(!!param.sticky) {
 
+                var offsetY     = self.table.offsetTop,
+                    tabelHeight = parseInt(getComputedStyle(self.table).height, 10),
+                    thWidth     = getComputedStyle(self.table.querySelector('th')).width,
+                    th          = self.table.getElementsByTagName('th'),
+                    thead       = self.table.getElementsByTagName('thead')[0],
+                    theadWidth  = getComputedStyle(thead).width,
+                    clonetHead  = thead.cloneNode(true);
+
+                clonetHead.style.transform = 'translateY(-100%)';
+                clonetHead.style.width = theadWidth;
+                clonetHead.style.left = this.table.offsetLeft + 1 + 'px';
+
+                for(var i=0; i < th.length; i++) {
+                    clonetHead.getElementsByTagName('th')[i].style.width = parseInt(thWidth, 10) + 1 + 'px';
+                }
+
+                var newTable = document.createElement('table');
+                newTable.className = 'et sticky';
+                newTable.appendChild(clonetHead);
+                document.body.appendChild(newTable);
+
                 window.addEventListener('scroll', function(event) {
 
                     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
-                        offsetY = self.table.offsetTop,
-                        tableTop = offsetY - scrollTop,
-                        tabelHeight = parseInt(getComputedStyle(self.table).height, 10),
-                        thWidth = getComputedStyle(self.table.querySelector('th')).width,
-                        th = self.table.getElementsByTagName('th'),
-                        thead = self.table.getElementsByTagName('thead')[0],
-                        theadWidth = getComputedStyle(thead).width;
-
-                    thead.style.width = theadWidth;
-                    for(var i=0; i < th.length; i++) {
-                        th[i].style.width = parseInt(thWidth, 10) + 1 + 'px';
-                    }
+                        tableTop = offsetY - scrollTop;
 
                     if(tableTop <= 0) {
 
-
                         if(tableTop +  tabelHeight <= 0) {
-                            console.log(tableTop +  tabelHeight);
-                            self.table.className = self.table.className.replace('sticky', '').trim();
+                            clonetHead.style.transform = 'translateY(-100%)';
                         } else {
-                            if(self.table.className.indexOf('sticky') < 0) {
-                                self.table.className += ' sticky';
-                            }
+                            clonetHead.style.transform = 'translateY(0)';
                         }
 
-
                     } else {
-                        self.table.className = self.table.className.replace('sticky', '').trim();
+                        clonetHead.style.transform = 'translateY(-100%)';
                     }
-
                 });
 
             }

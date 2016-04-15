@@ -27,7 +27,8 @@
     
     var et = easyTable({
         table: document.querySelector('table'), //表格元素
-        data: data //数据
+        data: data, //数据
+        sticky: true //是否固定表头
     }).order({
         index: 1, //排序序号
         order: 'desc' //排序方式 desc asc

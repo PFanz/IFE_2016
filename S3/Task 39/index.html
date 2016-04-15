@@ -18,8 +18,6 @@
             font-family: "Microsoft YaHei"
         }
 
-
-
         textarea {
             width: 100%;
             max-width: 100%;
@@ -94,6 +92,7 @@
     });
 
     var textarea = document.getElementById('data');
+    textarea.innerText = JSON.stringify(data.content);
     textarea.addEventListener('keyup', function(e) {
 
         try {

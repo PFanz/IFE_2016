@@ -9,7 +9,8 @@ table.et {
     text-align: left;
     color: rgba(0,0,0,.87);
     border-collapse: separate;
-    border-spacing: 0
+    border-spacing: 0;
+    font-family: "Microsoft YaHei";
 }
 
 table.et:first-child {
@@ -286,4 +287,5 @@ table.et tr td.disabled,table.et tr.disabled td,table.et tr.disabled:hover,table
 .et.sticky thead {
     position: fixed;
     top: 0;
+    transition: transform .1s ease-in;
 }
