@@ -28,11 +28,8 @@
             this.imgPop = document.querySelector('#yoPhoto-pop') || null;
             if(!this.imgPop) {
 
-                var img = document.createElement('img');
-
                 this.imgPop = document.createElement('div');
                 this.imgPop.id = 'yoPhoto-pop';
-                this.imgPop.appendChild(img);
                 document.body.appendChild(this.imgPop);
             }
             this.imgPop.addEventListener('click', function(event) {
@@ -55,7 +52,6 @@
                 self = this,
                 width = parseInt(this.width, 10),
                 height = parseInt(this.height, 10),
-                img = this.imgPop.querySelector('img'),
                 i;
 
             for(i = 0; i<this.imgList.length; i++) {
@@ -67,13 +63,22 @@
                 div.dataset.src = this.imgList[i].src;
                 div.dataset.alt = this.imgList[i].alt || '';
 
-                div.addEventListener('click', function() {
-                    self.imgPop.className += ' show';
-                    img.src = div.dataset.src;
-                });
                 //this.wrap.removeChild(imgList[i]);
                 divList.push(div);
             }
+
+            divList.forEach(function(item) {
+                item.addEventListener('click', function() {
+
+                    var img = document.createElement('img');
+
+                    self.imgPop.className += ' show';
+                    self.imgPop.innerHTML = '';
+                    img.src = item.dataset.src;
+
+                    self.imgPop.appendChild(img);
+                });
+            });
 
             switch (count) {
 
