@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box; }
+
+.yoPhoto {
+  position: relative;
+  overflow: hidden; }
+  .yoPhoto img {
+    display: none; }
+  .yoPhoto .imgCover {
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: all .2s ease-in-out;
+    transform: translate3d(0, 0, 0);
+    border: 0px solid #fff; }
+    .yoPhoto .imgCover:hover {
+      z-index: 2;
+      /*box-shadow: 0 0 10px 2px rgba(0,0,0,.4);*/
+      border-width: 1rem;
+      border-bottom-width: 4rem; }
+    .yoPhoto .imgCover:after {
+      content: attr(data-alt);
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+      font-famile: 'Microsoft Yahei';
+      font-size: 1rem;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: .8rem 1rem;
+      width: 100%;
+      text-align: right; }
+  .yoPhoto.layout-1 .imgCover {
+    width: 100%; }
+  .yoPhoto.layout-2 .imgCover:last-child {
+    transform: translateY(-100%);
+    -webkit-clip-path: polygon(66.66666% 0, 100% 0, 100% 100%, 33.33333% 100%);
+    clip-path: polygon(66.66666% 0, 100% 0, 100% 100%, 33.33333% 100%); }
+  .yoPhoto.layout-3 .imgCover {
+    position: absolute; }
+  .yoPhoto.layout-3 .imgCover:last-child {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .yoPhoto.layout-3 .imgCover:nth-child(5) {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .yoPhoto.layout-4 .imgCover {
+    width: 50%;
+    height: 50%;
+    float: left; }
+  .yoPhoto.layout-5 .imgCover {
+    width: 50%;
+    height: 50%;
+    float: left; }
+    .yoPhoto.layout-5 .imgCover:nth-child(9), .yoPhoto.layout-5 .imgCover:nth-child(10) {
+      transform: translateY(-100%); }
+  .yoPhoto.layout-6 .imgCover {
+    float: left; }
+
+/*# sourceMappingURL=style.css.map */

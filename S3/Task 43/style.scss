@@ -5,6 +5,7 @@
 .yoPhoto {
 
     position: relative;
+    overflow: hidden;
 
     img {
         display: none;
@@ -17,12 +18,30 @@
         background-position: center center;
         transition: all .2s ease-in-out;
         transform: translate3d(0,0,0);
+        border: 0px solid #fff;
 
         &:hover {
             //transform: scale(1.05);
             z-index: 2;
-            box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
+            /*box-shadow: 0 0 10px 2px rgba(0,0,0,.4);*/
+            border-width: 1rem;
+            border-bottom-width: 4rem;
         }
+
+        &:after {
+            content: attr(data-alt);
+            color: rgba(255,255,255, .2);
+            font-weight: 600;
+            font-famile: 'Microsoft Yahei';
+            font-size: 1rem;
+            position:absolute;
+            right: 0;
+            bottom: 0;
+            padding: .8rem 1rem;
+            width: 100%;
+            text-align: right;
+        }
+
     }
     
     &.layout-1 {
@@ -55,6 +74,36 @@
             position: absolute;
             right: 0;
             top: 0;
+        }
+    }
+
+    &.layout-4 {
+
+        .imgCover {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+    }
+
+    &.layout-5 {
+
+        .imgCover {
+            width: 50%;
+            height: 50%;
+            float: left;
+
+            &:nth-child(9),
+            &:nth-child(10) {
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    &.layout-6 {
+
+        .imgCover {
+            float: left;
         }
     }
 }

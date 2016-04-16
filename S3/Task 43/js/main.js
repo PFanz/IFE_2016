@@ -29,7 +29,23 @@
 
             count = parseInt(count, 10);
 
+            var divList = [],
+                self = this,
+                width = parseInt(this.width, 10),
+                height = parseInt(this.height, 10),
+                i;
 
+            for(i = 0; i<this.imgList.length; i++) {
+
+                var div = document.createElement('div');
+
+                div.className = 'imgCover';
+                div.style.backgroundImage = 'url(' + this.imgList[i].src　+　')';
+                div.dataset.alt = this.imgList[i].alt || '';
+
+                //this.wrap.removeChild(imgList[i]);
+                divList.push(div);
+            }
 
             switch (count) {
 
@@ -37,15 +53,9 @@
                 {
                     this.wrap.className +=  ' ' + this.prefix + '-1';
 
-                    for(var i = 0; i<this.imgList.length; i++) {
-
-                        var div = document.createElement('div');
-
-                        div.className = 'imgCover';
-                        div.style.backgroundImage = 'url(' + this.imgList[i].src　+　')';
-                        div.dataset.alt = this.imgList[i].alt || '';
-                        this.wrap.appendChild(div);
-                    }
+                    divList.forEach(function(item) {
+                        self.wrap.appendChild(item);
+                    });
 
                 } break;
 
@@ -54,15 +64,14 @@
 
                     this.wrap.className +=  ' ' + this.prefix + '-2';
 
-                    for(var i = 0; i<this.imgList.length; i++) {
+                    divList.forEach(function(item) {
 
-                        var div = document.createElement('div');
+                        if(!('clip-path' in document.body.style)) {
+                            item.style.width = width / 2 + 'px';
+                        }
 
-                        div.className = 'imgCover';
-                        div.style.backgroundImage = 'url(' + this.imgList[i].src　+　')';
-                        div.dataset.alt = this.imgList[i].alt || '';
-                        this.wrap.appendChild(div);
-                    }
+                        self.wrap.appendChild(item);
+                    });
 
                 } break;
 
@@ -71,39 +80,97 @@
 
                     this.wrap.className +=  ' ' + this.prefix + '-3';
 
-                    for(var i = 0; i<this.imgList.length; i++) {
+                    i = 0;
+                    divList.forEach(function(item) {
 
-                        var div = document.createElement('div');
-
-                        div.className = 'imgCover';
-                        div.style.backgroundImage = 'url(' + this.imgList[i].src　+　')';
-                        div.dataset.alt = this.imgList[i].alt || '';
-
-                        var width = parseInt(this.width, 10),
-                            height = parseInt(this.height, 10);
-                        switch (i) {
+                        switch (i++) {
                             case 0:
-                                div.style.width = width - (height / 2) + 'px';
-                                //div.style.float = 'left';
+                                item.style.width = width - (height / 2) + 'px';
                                 break;
                             case 1:
-                                div.style.width = div.style.height = height / 2 + 'px';
-                                //div.style.float = 'right';
+                                item.style.width = item.style.height = height / 2 + 'px';
                                 break;
                             case 2:
-                                div.style.width = div.style.height = height / 2 + 'px';
-                                //div.style.float = 'right';
+                                item.style.width = item.style.height = height / 2 + 'px';
                                 break;
                         }
 
-                        this.wrap.appendChild(div);
-                    }
+                        self.wrap.appendChild(item);
+                    });
 
                 } break;
 
-                case 4:;break;
-                case 5:;break;
-                case 6:;break;
+                case 4:
+                {
+
+                    this.wrap.className +=  ' ' + this.prefix + '-4';
+
+                    divList.forEach(function(item) {
+                        self.wrap.appendChild(item);
+                    });
+
+                } break;
+                case 5:
+                {
+
+                    this.wrap.className +=  ' ' + this.prefix + '-5';
+
+                    i = 0;
+                    divList.forEach(function(item) {
+
+                        switch (i++) {
+
+                            case 0:
+                                item.style.height = height * 2 / 3  + 'px';
+                                item.style.width = width * 2 / 3 + 'px';
+                                break;
+                            case 1:
+                                item.style.height = width / 3 + 'px';
+                                item.style.width = width / 3 + 'px';
+                                break;
+                            case 2:
+                                item.style.height = height - width / 3 + 'px';
+                                item.style.width = width / 3 + 'px';
+                                break;
+                            case 3:
+                            case 4:
+                                item.style.height =  height / 3 + 'px';
+                                item.style.width = width / 3 + 'px';
+                                break;
+                        }
+
+                        self.wrap.appendChild(item);
+                    });
+
+                } break;
+                case 6:
+                {
+
+                    this.wrap.className +=  ' ' + this.prefix + '-6';
+
+                    i = 0;
+                    divList.forEach(function(item) {
+
+                        switch (i++) {
+
+                            case 0:
+                                item.style.height = height * 2 / 3  + 'px';
+                                item.style.width = width * 2 / 3 + 'px';
+                                break;
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                                item.style.height =  height / 3 + 'px';
+                                item.style.width = width / 3 + 'px';
+                                break;
+                        }
+
+                        self.wrap.appendChild(item);
+                    });
+
+                } break;
                 default: console.warn('Doesn\'t support.'); break;
             }
 
