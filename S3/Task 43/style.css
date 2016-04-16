@@ -13,7 +13,8 @@
     background-position: center center;
     transition: all .2s ease-in-out;
     transform: translate3d(0, 0, 0);
-    border: 0px solid #fff; }
+    border: 0px solid #fff;
+    cursor: zoom-in; }
     .yoPhoto .imgCover:hover {
       z-index: 2;
       /*box-shadow: 0 0 10px 2px rgba(0,0,0,.4);*/
