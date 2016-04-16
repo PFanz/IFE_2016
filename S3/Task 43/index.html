@@ -55,6 +55,8 @@
     <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_5.jpg" alt="Image Alt">
 </div>
 
+<input type="button" id="p5-pop" value="弹出第一张图片" style="margin-bottom: 60px">
+
 <div id="pic-6">
     <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_1.jpg" alt="Image Alt">
     <img src="http://heyjax.github.io/demo/stage_3/task_43/img/img_2.jpg" alt="Image Alt">
@@ -86,6 +88,10 @@
     var p5 = yoPhoto({
         wrap: document.getElementById('pic-5'),
         height: '600px'
+    });
+
+    document.querySelector('#p5-pop').addEventListener('click', function() {
+        p5.pop(0);
     });
 
     var p6 = yoPhoto({

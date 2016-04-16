@@ -12,8 +12,11 @@
         prefix: 'layout',
         width: 0,
         height: 0,
+        imgPop: null,
 
         init: function(param) {
+
+            var self = this;
 
             this.wrap = param.wrap;
             this.imgList = this.wrap.querySelectorAll('img');
@@ -22,7 +25,26 @@
             this.wrap.style.width = this.width = param.width || '960px';
             this.wrap.style.height = this.height = param.height || '400px';
 
+            this.imgPop = document.querySelector('#yoPhoto-pop') || null;
+            if(!this.imgPop) {
+
+                var img = document.createElement('img');
+
+                this.imgPop = document.createElement('div');
+                this.imgPop.id = 'yoPhoto-pop';
+                this.imgPop.appendChild(img);
+                document.body.appendChild(this.imgPop);
+            }
+            this.imgPop.addEventListener('click', function(event) {
+                event = event || window.event;
+                console.log(event.target.id);
+                if(event.target.id === 'yoPhoto-pop') {
+                    self.imgPop.className = self.imgPop.className.replace('show', '');
+                }
+            })
+
             this.layout(this.imgList.length);
+
         },
 
         layout: function(count) {
@@ -33,6 +55,7 @@
                 self = this,
                 width = parseInt(this.width, 10),
                 height = parseInt(this.height, 10),
+                img = this.imgPop.querySelector('img'),
                 i;
 
             for(i = 0; i<this.imgList.length; i++) {
@@ -41,8 +64,13 @@
 
                 div.className = 'imgCover';
                 div.style.backgroundImage = 'url(' + this.imgList[i].src　+　')';
+                div.dataset.src = this.imgList[i].src;
                 div.dataset.alt = this.imgList[i].alt || '';
 
+                div.addEventListener('click', function() {
+                    self.imgPop.className += ' show';
+                    img.src = div.dataset.src;
+                });
                 //this.wrap.removeChild(imgList[i]);
                 divList.push(div);
             }
@@ -174,6 +202,14 @@
                 default: console.warn('Doesn\'t support.'); break;
             }
 
+        },
+
+        pop: function (index) {
+
+            var img = this.imgPop.querySelector('img');
+
+            this.imgPop.className += ' show';
+            img.src = this.imgList[index].src;
         }
     };
 
