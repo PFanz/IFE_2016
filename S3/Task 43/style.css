@@ -18,21 +18,37 @@
       z-index: 2;
       /*box-shadow: 0 0 10px 2px rgba(0,0,0,.4);*/
       border-width: 1rem;
-      border-bottom-width: 4rem; }
-    .yoPhoto .imgCover:after {
+      border-bottom-width: 3rem; }
+    .yoPhoto .imgCover:hover:after {
       content: attr(data-alt);
-      color: rgba(255, 255, 255, 0.2);
-      font-weight: 600;
-      font-famile: 'Microsoft Yahei';
-      font-size: 1rem;
+      color: #CFCECC;
+      font-weight: 300;
+      font-family: 'Microsoft Yahei';
+      font-size: 1.2rem;
       position: absolute;
       right: 0;
       bottom: 0;
-      padding: .8rem 1rem;
+      padding: 1rem 1rem;
       width: 100%;
-      text-align: right; }
+      text-align: right;
+      box-sizing: border-box;
+      margin-bottom: -3.3rem; }
   .yoPhoto.layout-1 .imgCover {
     width: 100%; }
+  .yoPhoto.layout-2 .imgCover:nth-child(3):hover:after {
+    content: attr(data-alt);
+    color: #CFCECC;
+    font-weight: 300;
+    font-family: 'Microsoft Yahei';
+    font-size: 1.2rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1rem 1rem;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    margin-bottom: -3.3rem; }
   .yoPhoto.layout-2 .imgCover:last-child {
     transform: translateY(-100%);
     -webkit-clip-path: polygon(66.66666% 0, 100% 0, 100% 100%, 33.33333% 100%);
