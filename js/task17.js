@@ -55,7 +55,14 @@ var pageState = {
  * 渲染图表
  */
 function renderChart() {
-
+  var wrap = document.getElementsByClassName('aqi-chart-wrap')[0];
+      wrap.innerHTML = '<canvas id="myCanvas"></canvas>';
+  var canvas = document.getElementById('myCanvas');
+      canvas.width = '100';
+      canvas.height = '600';
+  var ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#FF0000';
+      ctx.fillRect(0,0,10,100);
 }
 
 /**
@@ -115,3 +122,6 @@ function init() {
 }
 
 init();
+
+// 测试函数
+renderChart();
