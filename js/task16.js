@@ -15,7 +15,7 @@ var aqiData = {};
 function addAqiData() {
 	var area = document.getElementById('aqi-city-input').value;
 	var number = document.getElementById('aqi-value-input').value;
-	if( area!='' && parseFloat(number)!=''){
+	if( area!='' && !isNaN(parseFloat(number)) ){
 		aqiData[area] = number;
 	} else {
 		alert('请填写正确数据');
@@ -73,4 +73,4 @@ function init() {
  	table.onclick = delBtnHandle ;
 }
 
-window.onload = init;
+init();
