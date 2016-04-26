@@ -60,7 +60,6 @@
 				var modalElement = document.getElementsByClassName('modal')[0];
 				modalElement.style.top = modalElement.offsetTop + 'px';
 				modalElement.style.left = modalElement.offsetLeft + 'px';
-				// modalElement.style.position = 'relative';
 				modalElement.style.margin = '0';
 
 				var mouseX = event.mouseX;
@@ -73,11 +72,14 @@
 				// console.log('mousemove');
 				// console.log(event.movementX);
 				var modalElement = document.getElementsByClassName('modal')[0];
-				console.log(modalElement.offsetTop);
-				if(modalElement.offsetTop + event.movementY > 0){
+				var bodyWidth = document.documentElement.clientWidth;
+				var bodyHeight = document.documentElement.clientHeight;
+				var modalWidth = modalElement.offsetWidth;
+				var modalHeight = modalElement.offsetHeight;
+				if(modalElement.offsetTop + event.movementY > 0 && (modalElement.offsetTop + event.movementY < (bodyHeight - modalHeight))){
 					modalElement.style.top = modalElement.offsetTop + event.movementY + 'px';
 				}
-				if(modalElement.offsetLeft + event.movementX > 0) {
+				if(modalElement.offsetLeft + event.movementX > 0 && (modalElement.offsetLeft + event.movementX < (bodyWidth - modalWidth))) {
 					modalElement.style.left = modalElement.offsetLeft + event.movementX + 'px';
 				}
 			},
