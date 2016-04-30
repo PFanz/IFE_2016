@@ -1,0 +1,135 @@
+body {
+	font-family: "黑体";
+}
+
+section {
+	overflow: hidden;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	height: 4rem;
+	background: #91d4da;
+	color: white;
+}
+
+header  a{
+	position: absolute;
+	margin-left: 0.5rem;
+	line-height: 4rem;
+	font-size: 1.5rem;
+	color: white;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	line-height: 4rem;
+}
+
+header a:link {
+	text-decoration: none;
+}
+
+header a:visited {
+	text-decoration: none;
+}
+
+header a:hover {
+	text-decoration: none;
+}
+
+header a:active {
+	text-decoration: none;
+}
+
+nav ul {
+	overflow: hidden;
+}
+
+nav li {
+	float: left;
+	width: 20%;
+	list-style: none;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+.shuffling img{
+	width: 100%
+}
+
+.labels {
+	margin: 2rem 0;
+	overflow: hidden;
+}
+
+.label {
+	float: left;
+	width: 20%;
+	text-align: center;
+}
+
+.label p {
+	font-size: 1.5rem;
+	color: black;
+}
+
+.label a:link {
+	text-decoration: none;
+}
+
+.label a:visited {
+	text-decoration: none;
+}
+
+.label a:hover {
+	text-decoration: none;
+}
+
+.label a:active {
+	text-decoration: none;
+}
+
+.columns {
+	overflow: hidden;
+}
+
+.columns>div {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+}
+
+.columns h3 {
+	color: #5d5d5d;
+}
+
+.imgs {
+	float: left;
+	width: 20%;
+}
+
+.model li {
+	float: left;
+	width: 35%;
+	margin: 0.5rem 1rem;
+	font-size: 1.5rem;
+	line-height: 5.5rem;
+	background: #ccc;
+	text-align: center;
+	list-style: none;
+}
+
+.artical {
+	overflow: hidden;
+}
+
+.artical img {
+	float: left;
+}
