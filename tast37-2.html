@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/task37-2.css">
+</head>
+<body>
+	<button id="test">测试按钮</button>
+
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/widget.js"></script>
+<script type="text/javascript" src="js/task37-2.js"></script>
+<script type="text/javascript">
+	
+	document.getElementById('test').addEventListener('click', function(){
+		new Window().alert({
+			title: '提示',
+			content: 'welcome!',
+			width: 300,
+			height: 150,
+			y: 50,
+			hasCloseBtn: true,
+			text4AlertBtn: 'ok',
+			dragHandle: '.window_header',
+			handler4AlertBtn: function(){
+					console.log('here');
+			},
+			handler4CloseBtn: function(){
+
+			}
+		})
+	})
+
+
+</script>
+</body>
+</html>
