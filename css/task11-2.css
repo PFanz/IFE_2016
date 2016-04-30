@@ -1,0 +1,168 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "黑体";
+}
+
+section {
+	border-bottom: 2rem solid #dfdfdf;
+}
+
+header {
+	margin: 0;
+	height: 4rem;
+	font-size: 1.5rem;
+	color: white;
+	line-height: 4rem;
+	background: #91d4da;
+}
+
+header a {
+	position: absolute;
+	padding: 0 0.5rem;
+	font-size: 1.5rem;
+	color: white;
+	text-decoration: none;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+nav {
+
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around;
+	line-height: 3.5rem;
+	font-size: 1.4rem;
+	list-style: none;
+}
+
+.shuffling {
+
+}
+
+.shuffling img {
+	width: 100%;
+}
+
+.labels {
+	margin: 1rem 0;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around;
+}
+
+.label img {
+	width: 100%;
+}
+
+.label a {
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+}
+
+.label p {
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	width: 95%;
+}
+
+.columns {
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	align-items: center;
+	text-align: center;
+}
+
+.columns>div {
+	padding: 1rem;
+	flex-grow: 1;
+	border-right: 1px solid #ccc;
+}
+
+.columns>div:last-child {
+	border-right: 0px;
+}
+
+.columns img {
+	width: 100%;
+}
+
+.article-list h2 {
+	margin-left: 2rem;
+}
+
+.article-row {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.article-row>div {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.article-row>div:first-child {
+	padding: 0.5rem;
+}
+
+.article-row img{
+	border: 0.1rem solid #fa0;
+	width: 100%;
+}
+
+.article-row p {
+	margin: 0 1rem 1rem 1rem;
+	padding: 1rem;
+	background: #ccc;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.article-title {
+	display: -webkit-flex;
+	display: flex;
+}
+
+.article-title>div {
+	flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.article-title>div:first-child {
+	padding: 0.5rem;
+}
+
+.article-title img {
+	width: 100%;
+}
+
+div.imgs {
+	display: -webkit-flex;
+	display: flex;
+}
+
+div.imgs img {
+	margin: 0.5rem;
+    width: 90%;
+}
