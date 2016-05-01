@@ -12,26 +12,29 @@
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/widget.js"></script>
 <script type="text/javascript" src="js/task37-2.js"></script>
+<script type="text/javascript" src="js/drag.js"></script>
 <script type="text/javascript">
-	
+
 	document.getElementById('test').addEventListener('click', function(){
-		new Window().alert({
+		var w = new Window().alert({
 			title: '提示',
 			content: 'welcome!',
 			width: 300,
 			height: 150,
-			y: 50,
 			hasCloseBtn: true,
 			text4AlertBtn: 'ok',
-			dragHandle: '.window_header',
+			dragHandle: '.modal-header',
 			handler4AlertBtn: function(){
-					console.log('here');
+					
 			},
 			handler4CloseBtn: function(){
 
 			}
 		})
 	})
+
+
+
 
 
 </script>
