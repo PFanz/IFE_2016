@@ -14,9 +14,9 @@ function extendCopy(p) {
 function deepCopy(c, p) {　　　　
 	var c = c || {};
 	for (var i in p) {
-		if (p[i] && typeof p[i] === 'object') {	　　　　　　　　
+		if (p[i] && typeof p[i] === 'object') {	　　　　　　
 			c[i] = (p[i].constructor === Array) ? [] : {};			　　　　　　　　
-			deepCopy(p[i], c[i]);		　　　　　　
+			deepCopy(c[i], p[i]);		　　　　　　
 		} else {			　　　　　　　　　
 			c[i] = p[i];			　　　　　　
 		}　　　　
