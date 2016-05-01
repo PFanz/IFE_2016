@@ -7,8 +7,8 @@ var Window = function Window(){
 		hasCloseBtn: true,
 		hasMask: true,
 		isDraggable: true,
-		dragHandle: '.window_header',
-		skinClassName: null,
+		dragHandle: '.modal-header',
+		skinClassName: 'success',
 		text4AlertBtn: '确定',
 		handler4AlerBtn: null,
 		handler4CloseBtn: null
@@ -18,53 +18,54 @@ var Window = function Window(){
 Window.prototype = deepCopy(new Widget(), {
 
 	renderUI: function(test){
-		var bodyElement = document.getElementsByTagName('body')[0];
+		this.bodyElement = document.getElementsByTagName('body')[0];
 		this.boundingBox = document.createElement('div');
 		this.boundingBox.className = 'modal';
 
-		var modalHeader = document.createElement('div');
-		modalHeader.className = 'modal-header';
-		var modalHeaderText = document.createTextNode(this.cfg.title);
-		modalHeader.appendChild(modalHeaderText);
+		this.modalHeader = document.createElement('div');
+		this.modalHeader.className = 'modal-header';
+		this.modalHeaderText = document.createTextNode(this.cfg.title);
+		this.modalHeader.appendChild(this.modalHeaderText);
 
-		var modalBody = document.createElement('div');
-		modalBody.className = 'modal-body';
+		this.modalBody = document.createElement('div');
+		this.modalBody.className = 'modal-body';
 
-		var modalBodyText = document.createTextNode(this.cfg.content);
-		modalBody.appendChild(modalBodyText);
+		this.modalBodyText = document.createTextNode(this.cfg.content);
+		this.modalBody.appendChild(this.modalBodyText);
 
-		var modalFooter = document.createElement('div');
-		modalFooter.className = 'modal-footer';
+		this.modalFooter = document.createElement('div');
+		this.modalFooter.className = 'modal-footer';
 
-		var sureBtn = document.createElement('input');
-		sureBtn.setAttribute('type','button');
-		sureBtn.setAttribute('value',this.cfg.text4AlertBtn);
-		sureBtn.setAttribute('id','modal-sure');
-		sureBtn.className = 'button';
+		this.sureBtn = document.createElement('input');
+		this.sureBtn.setAttribute('type','button');
+		this.sureBtn.setAttribute('value',this.cfg.text4AlertBtn);
+		this.sureBtn.setAttribute('id','modal-sure');
+		this.sureBtn.className = 'button';
 
-		modalFooter.appendChild(sureBtn);
-		this.boundingBox.appendChild(modalHeader);
-		this.boundingBox.appendChild(modalBody);
-		this.boundingBox.appendChild(modalFooter);
-
+		this.modalFooter.appendChild(this.sureBtn);
+		this.boundingBox.appendChild(this.modalHeader);
+		this.boundingBox.appendChild(this.modalBody);
+		this.boundingBox.appendChild(this.modalFooter);
+		// 遮盖层
 		if(this.cfg.hasMask){
-			var maskElement = document.createElement('div');
-			maskElement.className = 'window_mask';
-			document.body.appendChild(maskElement);
+			this.maskElement = document.createElement('div');
+			this.maskElement.className = 'window_mask';
+			document.body.appendChild(this.maskElement);
 		}
+		// 关闭按钮
 		if(this.cfg.hasCloseBtn){
-			var closeBtn = document.createElement('span');
-			closeBtn.className = 'window_closeBtn';
-			var closeBtnText = document.createTextNode('X');
-			closeBtn.appendChild(closeBtnText);
-			this.boundingBox.appendChild(closeBtn);
+			this.closeBtn = document.createElement('span');
+			this.closeBtn.className = 'window_closeBtn';
+			this.closeBtnText = document.createTextNode('x');
+			this.closeBtn.appendChild(this.closeBtnText);
+			this.boundingBox.appendChild(this.closeBtn);
 		}
 	},
 
 	bindUI: function(){
 
 		var that = this;
-		
+		// 回调函数
 		if(this.cfg.handler4AlertBtn){
 			this.on('alert', this.cfg.handler4AlertBtn);
 		}
@@ -83,30 +84,34 @@ Window.prototype = deepCopy(new Widget(), {
 			that.destroy();
 		});
 
+		document.querySelector('.window_closeBtn').addEventListener('click', function(){
+			that.fire('close');
+			that.destroy();
+		})
+
 	},
 
-	sycnUI: function(){
+	syncUI: function(){
 
-		this.boundingBox.css({
-			width : this.cfg.width + 'px',
-			height : this.cfg.height + 'px',
-			left : (this.cfg.x || (window.innerWidth - this.cfg.width)/2) + 'px',
-			top : (this.cfg.y || (window.innerHeight - this.cfg.height)/2) + 'px'
-		});
+		this.boundingBox.style.width = this.cfg.width + 'px';
+		this.boundingBox.style.height = this.cfg.height + 'px';
+		this.boundingBox.style.left = (this.cfg.x || (window.innerWidth - this.cfg.width)/2) + 'px';
+		this.boundingBox.style.top = (this.cfg.y || (window.innerHeight - this.cfg.height)/2) + 'px';
+
 		if(this.cfg.skinClassName){
-			this.boundingBox.addClass(this.cfg.skinClassName);
+			this.boundingBox.className += ' ' + this.cfg.skinClassName;
 		}
 		if(this.cfg.isDraggable){
 			if(this.cfg.dragHandle){
-				this.boundingBox.draggable({handle:this.cfg.dragHandle});
+				new Drag(this.boundingBox, document.querySelector(this.cfg.dragHandle));
 			} else {
-				this.boundingBox.draggable();
+				new Drag(this.boundingBox);
 			}
 		}
 	},
 
 	destructor: function(){
-		this._mask && document.getElementsByClassName('window_mask')[0].remove();
+		this.maskElement && this.maskElement.remove();
 	},
 
 	alert: function(cfg){

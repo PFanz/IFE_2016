@@ -37,9 +37,13 @@
 				document.querySelector('.modal').remove();
 		},
 
+		// 添加dom节点
 		renderUI: function(){},
+		// 添加监听事件
 		bindUI: function(){},
+		// 初始化组件属性
 		syncUI: function(){},
+		// 销毁
 		destructor: function(){}
 	}
 
