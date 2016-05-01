@@ -17,7 +17,7 @@ var Window = function Window(){
 
 Window.prototype = deepCopy(new Widget(), {
 
-	renderUI: function(test){
+	renderUI: function(){
 		this.bodyElement = document.getElementsByTagName('body')[0];
 		this.boundingBox = document.createElement('div');
 		this.boundingBox.className = 'modal';
