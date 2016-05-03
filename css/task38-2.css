@@ -1,0 +1,29 @@
+.sort-table {
+	border: 0.5px solid #ccc;
+	border-collapse:collapse;
+	width: 50%;
+}
+
+.sort-table th {
+	color: #fff;
+	background: #555;
+	border: 0.5px solid #ccc;
+}
+
+.sort-table td {
+	text-align: center;
+	border: 0.5px solid #ccc;
+}
+
+.sort-table th .sort {
+	display: inline-block;
+	cursor: pointer;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+
+span.sort {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
